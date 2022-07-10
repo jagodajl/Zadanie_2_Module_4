@@ -1,44 +1,76 @@
 import logging
-logging.basicConfig(level=logging.DEBUG)
+
+logging.basicConfig(level=logging.INFO)
+
+
+def cast_to_string(number):
+    return str(number)
+
 
 def addition(x, y):
+    logging.info("1.Dodawanie: " + cast_to_string(x) + " + " + cast_to_string(y))
     return x + y
 
+
 def subtraction(x, y):
+    logging.info("2.Odejmowanie: " + cast_to_string(x) + " - " + cast_to_string(y))
     return x - y
 
+
 def multiplication(x, y):
+    logging.info("3.Mnożenie: " + cast_to_string(x) + " * " + cast_to_string(y))
     return x * y
 
+
 def division(x, y):
+    logging.info("4.Dzielenie: " + cast_to_string(x) + " / " + cast_to_string(y))
     return x / y
 
 
-while True:
-    choice = input("Podaj działanie, posługując się odpowiednią liczbą: (1/2/3/4): ")
-
-    if choice in ('1', '2', '3', '4'):
-        num1 = float(input("Podaj składnik 1: "))
-        num2 = float(input("Podaj składnik 2 "))
-
-        if choice == '1':
-            print("Wynik to:  ", addition(num1, num2))
-
-        elif choice == '2':
-            print("Wynik to:  ", subtraction(num1, num2))
-
-        elif choice == '3':
-            print("Wynik to:  ", multiplication(num1, num2))
-
-        elif choice == '4':
-            print("Wynik to:  ", division(num1, num2))
-        break
+def is_action_input_valid(action_input):
+    if (int(action_input) < 1) or (int(action_input) > 4):
+        logging.error("The action input must be in range of 1 - 4. Please provide correct action input")
+        return False
     else:
-        print("Invalid Input")
+        return True
 
 
-logging.info("Podaj działanie, posługując się odpowiednią liczbą:")
-logging.info("1.Dodawanie")
-logging.info("2.Odejmowanie")
-logging.info("3.Mnożenie")
-logging.info("4.Dzielenie")
+def is_number_input_valid(number1, number2):
+    if number1.isnumeric() and number2.isnumeric:
+        return True
+    else:
+        logging.error("One of provided component is not a number. Please run again providing only numbers")
+        exit(1)
+
+
+user_input = input("Podaj działanie, posługując się odpowiednią liczbą: (1 - dodawanie  2 - odejmowanie  3 - mnozenie "
+                   " 4 - dzielenie) :) ")
+
+
+def perform_calculation(choice):
+    while is_action_input_valid(choice):
+        number1_str = input("Podaj składnik 1: ")
+        number2_str = input("Podaj składnik 2 ")
+        is_number_input_valid(number1_str, number2_str)
+        num1 = float(number1_str)
+        num2 = float(number2_str)
+
+        if choice in ('1', '2', '3', '4'):
+
+            if choice == '1':
+                print("Wynik to:  ", addition(num1, num2))
+
+            elif choice == '2':
+                print("Wynik to:  ", subtraction(num1, num2))
+
+            elif choice == '3':
+                print("Wynik to:  ", multiplication(num1, num2))
+
+            elif choice == '4':
+                print("Wynik to:  ", division(num1, num2))
+            break
+        else:
+            print("Invalid Input")
+
+
+perform_calculation(user_input)
