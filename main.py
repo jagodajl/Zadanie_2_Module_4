@@ -33,7 +33,7 @@ def is_action_input_valid(action_input):
 
 
 def is_number_input_valid(number1, number2):
-    if number1.isnumeric() and number2.isnumeric:
+    if number1.isnumeric() and number2.isnumeric():
         return True
     else:
         logging.error("One of provided component is not a number. Please run again providing only numbers")
