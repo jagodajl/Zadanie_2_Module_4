@@ -1,1 +1,1 @@
-Please accept
+Ubrałam okulary i znalazłam różnice xD
