@@ -3,27 +3,23 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 
-def cast_to_string(number):
-    return str(number)
-
-
 def addition(x, y):
-    logging.info("1.Dodawanie: " + cast_to_string(x) + " + " + cast_to_string(y))
+    logging.info("1.Dodawanie: " + str(x) + " + " + str(y))
     return x + y
 
 
 def subtraction(x, y):
-    logging.info("2.Odejmowanie: " + cast_to_string(x) + " - " + cast_to_string(y))
+    logging.info("2.Odejmowanie: " + str(x) + " - " + str(y))
     return x - y
 
 
 def multiplication(x, y):
-    logging.info("3.Mnożenie: " + cast_to_string(x) + " * " + cast_to_string(y))
+    logging.info("3.Mnożenie: " + str(x) + " * " + str(y))
     return x * y
 
 
 def division(x, y):
-    logging.info("4.Dzielenie: " + cast_to_string(x) + " / " + cast_to_string(y))
+    logging.info("4.Dzielenie: " + str(x) + " / " + str(y))
     return x / y
 
 
